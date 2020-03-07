@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- 引入css样式重置文件，引入图标字体文件 -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/css/iconfont.css">
+    <!-- 设置移动端点击的时候0.3s的延迟的代码 -->
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            }, false);
+        }
+    </script>
   </head>
   <body>
     <noscript>

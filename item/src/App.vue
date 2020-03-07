@@ -1,11 +1,23 @@
 <template>
-    <div>app...</div>
+    <div id="app">
+        <router-view />
+        <Footer />
+    </div>
 </template>
 
 <script>
-export default {}
+import Footer from './components/Footer'
+export default {
+    name: 'App',
+    components: {
+        Footer
+    }
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+pages
+    width 100%
+    height 100%
 </style>
 
