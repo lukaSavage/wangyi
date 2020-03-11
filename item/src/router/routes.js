@@ -3,31 +3,57 @@ import Category from '../pages/Category'
 import Goods from '../pages/Goods'
 import Index from '../pages/Index'
 import Personal from '../pages/Personal'
+import Item from '../pages/Category/Items'
+import SearchInfo from '../pages/SearchInfo'
 
 
-export default[
+export default [
     {
-        path: '/index',
-        component: Index
+        path: '/',
+        component: Index,
+        meta: {
+            isShow: true
+        }
     },
     {
-        path: '/category',
-        component: Category
+        path: '/category/cateList',
+        component: Category,
+        children: [
+            {
+                path: '/category/cateList:id',
+                component: Item
+            }
+        ],
+        meta: {
+            isShow: true
+        }
     },
     {
         path: '/goods',
-        component: Goods
+        component: Goods,
+        meta: {
+            isShow: true
+        }
     },
     {
         path: '/cart',
-        component: Cart
+        component: Cart,
+        meta: {
+            isShow: true
+        }
     },
     {
         path: '/personal',
-        component: Personal
+        component: Personal,
+        meta: {
+            isShow: false
+        }
     },
     {
-        path: '/',
-        redirect: '/index'
-    }
+        path: '/search',
+        component: SearchInfo,
+        meta: {
+            isShow: false
+        }
+    },
 ]

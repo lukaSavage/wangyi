@@ -5,19 +5,32 @@ let KoaRouter = require('koa-router');
 const app = new Koa();
 const router = new KoaRouter();
 
-
-let demoData = require('./datas/demo');
-
-router.get('/demo', (ctx, next) => {
-  ctx.body = demoData
-});
+let cateLists = require('./datas/cateLists.json')
+let cateNavDatas = require('./datas/cateNavDatas.json')
+let index = require('./datas/index.json')
+let indexCateModule = require('./datas/indexCateModule.json')
 
 
-router.get('/test', (ctx, next) => {
+
+router.get('/cateLists', (ctx, next) => {
   // 1. 获取路由参数： query对象
-  
   // 2. 返回路由数据
-  ctx.body = '测试返回内容'
+  ctx.body = cateLists
+});
+router.get('/cateNavDatas', (ctx, next) => {
+  // 1. 获取路由参数： query对象
+  // 2. 返回路由数据
+  ctx.body = cateNavDatas
+});
+router.get('/index', (ctx, next) => {
+  // 1. 获取路由参数： query对象
+  // 2. 返回路由数据
+  ctx.body = index
+});
+router.get('/indexCateModule', (ctx, next) => {
+  // 1. 获取路由参数： query对象
+  // 2. 返回路由数据
+  ctx.body = indexCateModule
 });
 
 

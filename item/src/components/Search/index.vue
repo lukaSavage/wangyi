@@ -1,7 +1,7 @@
 <template>
-    <div class="search">
+    <div class="search" @click="$router.push('/search')">
         <i></i>
-        <span>搜索商品,共24.27件好物</span>
+        <span>搜索商品,共24827件好物</span>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {}
 .search
     width 100%
     height 100%
-    background-color #fff
+    background-color #eee
     border-radius 5px
     display flex
     justify-content center
@@ -24,5 +24,6 @@ export default {}
         width 16px
         height 16px
         background url(img/search.webp) no-repeat 100%/100%
+        
 
 </style>

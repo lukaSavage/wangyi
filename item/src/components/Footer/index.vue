@@ -1,12 +1,12 @@
 <template>
     <footer id="footer">
-        <a class="footer-item" :class="{on:$route.path==='/index'}" @click="goto('/index')">
+        <a class="footer-item" :class="{on:$route.path==='/'}" @click="goto('/')">
             <span class="item_icon">
                 <i class="iconfont icon-shouye"></i>
             </span>
             <span>首页</span>
         </a>
-        <a class="footer-item" :class="{on:$route.path==='/category'}" @click="goto('/category')">
+        <a class="footer-item" :class="{on:$route.path==='/category/cateList'}" @click="goto('/category/cateList')">
             <span class="item_icon">
                 <i class="iconfont icon-choutigui"></i>
             </span>
@@ -58,6 +58,7 @@ export default {
     display flex
     background-color #fff
     z-index 999
+    border-top 1px solid #eee
     .footer-item
         display flex
         flex 1
