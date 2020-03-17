@@ -13,17 +13,21 @@ export default [
         component: Index,
         meta: {
             isShow: true
-        }
-    },
-    {
-        path: '/category/cateList',
-        component: Category,
+        },
         children: [
             {
-                path: '/category/cateList:id',
-                component: Item
+                path: '/index',
+                redirect: '/'
             }
-        ],
+        ]
+    },
+
+    {
+        path: '/category/cateList',
+        components: { 
+            default: Category,
+            Item
+        },
         meta: {
             isShow: true
         }

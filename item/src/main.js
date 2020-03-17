@@ -6,8 +6,15 @@ import router from './router'
 import store from './store'
 // 验证表单的文件
 import './tools/validate.js'
+// 懒加载插件
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueLazyload,{
+    // 配置懒加载
+    error: 'static/img/error.png',    // 加载不到代替的图片
+    loading: 'static/img/loading.jpg'   // 正在加载的图片
 
+})
 
 
 Vue.config.productionTip = false

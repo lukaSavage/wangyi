@@ -8,7 +8,9 @@
                 <ul>
                     <li v-for="(item) in tempData2.categoryList" :key="item.id">
                         <div class="content">
-                            <img :src="item.wapBannerUrl" alt />
+                            <!-- <img :src="item.wapBannerUrl" alt /> -->
+                            <!-- 使用懒加载插件 -->
+                            <img v-lazy="item.wapBannerUrl" alt />
                             <p>{{item.name}}</p>
                         </div>
                     </li>
@@ -18,7 +20,9 @@
                 <ul>
                     <li v-for="(item) in tempData2.subCateList" :key="item.id">
                         <div class="content">
-                            <img :src="item.wapBannerUrl" alt />
+                            <!-- <img :src="item.wapBannerUrl" alt /> -->
+                            <!-- 使用懒加载插件 -->
+                            <img v-lazy="item.wapBannerUrl" alt />
                             <p>{{item.name}}</p>
                         </div>
                     </li>
@@ -35,11 +39,6 @@ import BScroll from 'better-scroll'
 export default {
     name: 'Items',
     props: ['on'],
-    data() {
-        return {
-            
-        }
-    },
     computed: {
         tempData:{
             get(){

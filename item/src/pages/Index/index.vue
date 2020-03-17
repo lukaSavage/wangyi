@@ -47,8 +47,7 @@
                     </a>
                 </li>
             </ul>
-            <ol class="swiper-pagination">
-                <li v-for="(item) in carouselImg" :key="item.id" :class="{on: item.id===54639872}"></li>
+            <ol class="swiper-pagination ol">
             </ol>
         </section>
         <section class="home-grow">
@@ -158,20 +157,38 @@ export default {
             click: true
         })
         new Swiper('.swiper-container', {
-            loop: true, // 循环模式选项
-            autoplay: true,
-            delay: 3000,
-            pagination: '.swiper-pagination',
-            on: {
-                slideChangeTransitionEnd: function() {
-                    // console.log(this.realIndex) //切换结束时，告诉我现在是第几个slide4
-                }
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                bulletElement: 'li',
+                bulletClass: 'my-bullet',
+                bulletActiveClass: 'on'
             }
         })
     }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
+.ol
+    width 100%
+    position absolute
+    text-align center
+    bottom 15px
+    z-index 3
+.my-bullet
+    width 22px
+    height 3px
+    background-color #ffffff50
+    display inline-block
+    margin-left 5px
+    &.on
+        background-color #fff
 .home
     width 100%
     padding-top 76px
@@ -306,156 +323,142 @@ export default {
                 img
                     width 100%
                     display block
-        ol.swiper-pagination
-            width 100%
-            position absolute
+.home-grow
+    width 100%
+    height 37px
+    padding 0 15px
+    box-sizing border-box
+    background-color #fff
+    ul
+        width 100%
+        height 100%
+        display flex
+        li
             text-align center
-            bottom 15px
-            z-index 3
-            li
-                width 22px
-                height 3px
-                background-color #ffffff50
+            line-height 37px
+            font-size 14px
+            i
                 display inline-block
-                margin-left 5px
-                &.on
-                    background-color #fff
-    .home-grow
-        width 100%
-        height 37px
-        padding 0 15px
-        box-sizing border-box
-        background-color #fff
-        ul
-            width 100%
-            height 100%
-            display flex
-            li
-                text-align center
-                line-height 37px
-                font-size 14px
-                i
-                    display inline-block
-                    width 14px
-                    height 14px
-                    margin-right 3px
-                    &.one
-                        background url('https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png) no-repeat 100%/100%
-                    &.two
-                        background url('https://yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png) no-repeat 100%/100%
-                    &.three
-                        background url('https://yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png) no-repeat 100%/100%
-    .home-list
-        width 100%
-        overflow hidden
-        background-color #fff
-        ul
-            width 100%
-            li
-                width 20%
-                height 84px
-                float left
-                box-sizing border-box
-                padding 0 7px
-                img
-                    width 100%
-                p
-                    font-size 14px
-    .home-newpeople
-        width 100%
-        margin 15px 0
-        background-color #fff
-        .newpeople-header
-            width 100%
-            height 40px
-            text-align center
-            box-sizing border-box
-            padding 0 15px
-            line-height 40px
-        .newpeople-main
-            margin 0 15px
-            display flex
-            padding-bottom 20px
-            .left
-                width 50%
-                height 220px
-                display block
-                background-color #F9E9CF
+                width 14px
+                height 14px
                 margin-right 3px
-                color #333333
-                .new
-                    box-sizing border-box
-                    width 100%
-                    padding 15px 0 0 15px
-                .img
-                    width 100%
-                    height 205px
-                    text-align center
-                    line-height 205px
-                    img
-                        width 130px
-                        height 130px
-                        margin-top 50%
-                        transform translateY(-50%)
-            .right
-                width 50%
-                height 220px
-                .module1
-                    width 100%
-                    height calc(50% - 1.5px)
-                    margin-bottom 3px
-                    background-color #FBE2D3
-                    border-radius 5px
-                    padding 10px 0 0 15px
-                    box-sizing border-box
-                    position relative
-                    .title1
-                        height 25px
-                        color #333333
-                    .img
-                        width 100px
-                        height 100px
-                        position absolute
-                        right 0
-                        bottom 0
-                        img
-                            width 100%
-                            height 100%
-                .module2
-                    width 100%
-                    height calc(50% - 1.5px)
-                    background-color #FBE2D3
-                    border-radius 3px
-                    box-sizing border-box
-                    padding 10px 0 0 15px
-                    .title
-                        color #333333
-                    .target
-                        display inline-block
-                        background-color #CBB693
-                        padding 1px 3px
-                        margin-top 3px
-                        color #fff
-                        font-size 14px
-    .home-bottom
+                &.one
+                    background url('https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png) no-repeat 100%/100%
+                &.two
+                    background url('https://yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png) no-repeat 100%/100%
+                &.three
+                    background url('https://yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png') no-repeat 100% / 100% // yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png) no-repeat 100%/100%
+.home-list
+    width 100%
+    overflow hidden
+    background-color #fff
+    ul
         width 100%
-        box-sizing border-box
-        padding 30px 15px 15px
-        background-color #333
-        text-align center
-        .bd
-            margin-bottom 20px
-            a
-                display inline-block
-                width 80px
-                height 30px
-                border 1px solid #fff
-                text-align center
-                line-height 30px
-                color #fff
+        li
+            width 20%
+            height 84px
+            float left
+            box-sizing border-box
+            padding 0 7px
+            img
+                width 100%
+            p
                 font-size 14px
-                &:first-child
-                    margin-right 25px
-        .copy
-            color #999
+.home-newpeople
+    width 100%
+    margin 15px 0
+    background-color #fff
+    .newpeople-header
+        width 100%
+        height 40px
+        text-align center
+        box-sizing border-box
+        padding 0 15px
+        line-height 40px
+    .newpeople-main
+        margin 0 15px
+        display flex
+        padding-bottom 20px
+        .left
+            width 50%
+            height 220px
+            display block
+            background-color #F9E9CF
+            margin-right 3px
+            color #333333
+            .new
+                box-sizing border-box
+                width 100%
+                padding 15px 0 0 15px
+            .img
+                width 100%
+                height 205px
+                text-align center
+                line-height 205px
+                img
+                    width 130px
+                    height 130px
+                    margin-top 50%
+                    transform translateY(-50%)
+        .right
+            width 50%
+            height 220px
+            .module1
+                width 100%
+                height calc(50% - 1.5px)
+                margin-bottom 3px
+                background-color #FBE2D3
+                border-radius 5px
+                padding 10px 0 0 15px
+                box-sizing border-box
+                position relative
+                .title1
+                    height 25px
+                    color #333333
+                .img
+                    width 100px
+                    height 100px
+                    position absolute
+                    right 0
+                    bottom 0
+                    img
+                        width 100%
+                        height 100%
+            .module2
+                width 100%
+                height calc(50% - 1.5px)
+                background-color #FBE2D3
+                border-radius 3px
+                box-sizing border-box
+                padding 10px 0 0 15px
+                .title
+                    color #333333
+                .target
+                    display inline-block
+                    background-color #CBB693
+                    padding 1px 3px
+                    margin-top 3px
+                    color #fff
+                    font-size 14px
+.home-bottom
+    width 100%
+    box-sizing border-box
+    padding 30px 15px 15px
+    background-color #333
+    text-align center
+    .bd
+        margin-bottom 20px
+        a
+            display inline-block
+            width 80px
+            height 30px
+            border 1px solid #fff
+            text-align center
+            line-height 30px
+            color #fff
+            font-size 14px
+            &:first-child
+                margin-right 25px
+    .copy
+        color #999
 </style>
